@@ -31,8 +31,7 @@ def pregunta():
     meanings_list = get_meanings(WORD)
     text = f"'{meanings_list[0]}'"
     if len(meanings_list) >= 2:
-        del meanings_list[0]
-        for i in meanings_list:
+        for i in meanings_list[1:]:
             text += f" or '{i}'"
     answer = input(f'What is {text} in Spanish? ')
     if answer.lower() == WORD.lower():
