@@ -15,7 +15,7 @@ def adding_new_word(new):
         file.write(f'{new},')
         print(f"'{new}' is added to the list.")
     else:
-        print("It already exists in the list.")
+        print(f"'{new}' already exists in the list.")
     file.close()
 
 adding_new_word('trece')
