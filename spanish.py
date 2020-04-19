@@ -1,13 +1,14 @@
 import requests
 from bs4 import BeautifulSoup
 from random import *
-import html5lib
 
-WORD_LIST = ['pequeno', 'nevera', 'mujer', 'sombrero', 'mensaje', 'baloncesto', 'preocupado', 'escuchar']
 URL = 'https://www.spanishdict.com/translate'
 headers = {'User-Agent': 'Mozilla/5.0'}
 
 def get_word():
+    words_file = open('words_spanish.txt', 'r')
+    WORD_LIST = words_file.read().split(', ')
+    words_file.close()
     radnom_num = randint(0, len(WORD_LIST)-1)
     WORD = (WORD_LIST[radnom_num]).lower()
     return WORD
