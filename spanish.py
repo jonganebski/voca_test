@@ -4,6 +4,8 @@ from random import *
 
 URL = 'https://www.spanishdict.com/translate'
 headers = {'User-Agent': 'Mozilla/5.0'}
+TOTAL_questions = 5
+previous_nums = []
 
 def get_word():
     words_file = open('words_spanish.txt', 'r')
@@ -29,17 +31,18 @@ def get_meanings(WORD):
     return meanings
 
 def pregunta():
-    WORD = get_word()
-    meanings_list = get_meanings(WORD)
-    text = f"'{meanings_list[0]}'"
-    if len(meanings_list) >= 2:
-        for i in meanings_list[1:]:
-            text += f" or '{i}'"
-    answer = input(f'What is {text} in Spanish? ')
-    if answer.lower() == WORD.lower():
-        print('Correct')
-    else:
-        print(f"Wrong. it is '{WORD}'.")
+    for n in range(TOTAL_questions):
+        WORD = get_word()
+        meanings_list = get_meanings(WORD)
+        text = f"'{meanings_list[0]}'"
+        if len(meanings_list) >= 2:
+            for i in meanings_list[1:]:
+                text += f" or '{i}'"
+        answer = input(f'{n+1}.What is {text} in Spanish? ')
+        if answer.lower() == WORD.lower():
+            print('Correct')
+        else:
+            print(f"Wrong. it is '{WORD}'.")
 
 pregunta()
 
