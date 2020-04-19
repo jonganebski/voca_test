@@ -7,7 +7,7 @@ headers = {'User-Agent': 'Mozilla/5.0'}
 
 def get_word():
     words_file = open('words_spanish.txt', 'r')
-    WORD_LIST = words_file.read().split(', ')
+    WORD_LIST = words_file.read().split(',')
     WORD_LIST.pop()
     words_file.close()
     radnom_num = randint(0, len(WORD_LIST)-1)
