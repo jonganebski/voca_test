@@ -1,18 +1,18 @@
 def checking(new):
     file = open('words_spanish.txt', 'r')
-    list = file.read().split(' ,')
+    list = file.read().split(',')
     file.close()
     for i in list:
         if i == new:
             return False
-        else:
-            return True
+            break
+    retuen True
 
 def adding_new_word(new):
-    file = open('words_spanish.txt', 'w')
+    file = open('words_spanish.txt', 'a')
     check = checking(new)
     if check:
-        file.write(f'{new}, ')
+        file.write(f'{new},')
         print(f"'{new}' is added to the list.")
     else:
         print("It already exists in the list.")
